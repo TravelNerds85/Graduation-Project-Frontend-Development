@@ -16,13 +16,13 @@ function AuthContextProvider({ children }) {
         const token = localStorage.getItem('JWT_token');
 
         if (token !== undefined && authState.user === null) {
-            console.log(token)
+            logIn(token)
+        } else {
+            setAuthState({
+                user: null,
+                status: 'done',
+            });
         }
-
-        setAuthState({
-            user: null,
-            status: 'done',
-        });
     }, []);
 
     async function logIn(jwt) {
@@ -35,7 +35,7 @@ function AuthContextProvider({ children }) {
 
         try {
             const result = await axios.get(
-                `http://localhost:3000/600/users/${userId}`,
+                'https://polar-lake-14365.herokuapp.com/api/user',
                 {
                     headers: {
                         'Content-Type': 'application/json',

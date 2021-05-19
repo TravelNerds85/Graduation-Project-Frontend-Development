@@ -7,9 +7,9 @@ import {BrowserRouter as Router} from "react-router-dom";
 ReactDOM.render(
     <React.StrictMode>
         <Router>
-            {/*<AuthContextProvider>*/}
+            <AuthContextProvider>
                 <App/>
-            {/*</AuthContextProvider>*/}
+            </AuthContextProvider>
         </Router>
     </React.StrictMode>,
     document.getElementById('root')

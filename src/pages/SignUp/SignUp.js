@@ -14,7 +14,7 @@ function SignUp() {
         toggleError(false);
         console.log(data);
         try {
-            const result = await axios.post('', {
+            const result = await axios.post('https://polar-lake-14365.herokuapp.com/api/auth/signup', {
                 "email": data.email,
                 "username": data.username,
                 "password": data.password,

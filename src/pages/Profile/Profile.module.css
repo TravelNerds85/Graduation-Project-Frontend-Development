@@ -12,3 +12,31 @@
     margin: 100px auto;
     padding: 25px;
 }
+
+.user {
+    color: #15cdfc;
+    font-size: 54px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.container-profile h1 {
+    color: white;
+    font-size: 54px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.container-profile p {
+    color: white;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+/*.container-profile li {*/
+/*    color: white;*/
+/*    font-size: 21px;*/
+/*    font-weight: lighter;*/
+/*    letter-spacing: 1px;*/
+/*}*/

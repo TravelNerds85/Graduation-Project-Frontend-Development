@@ -10,15 +10,15 @@ function SignIn() {
     const [error, toggleError] = useState(false);
     const [success, toggleSuccess] = useState(false);
     const {logIn} = useContext(AuthContext);
-    const host = 'http://localhost:3000';
+    console.log(logIn);
 
-    // const host = 'https://polar-lake-14365.herokuapp.com';
+    const host = 'https://polar-lake-14365.herokuapp.com';
 
     async function onSubmit(data) {
         toggleError(false)
         console.log('before request', data);
         try {
-            const result = await axios.post(`${host}/login`, data);
+            const result = await axios.post(`${host}/api/auth/signin`, data);
             console.log('after request', result)
             logIn(result.data.accessToken)
             toggleSuccess(true);
@@ -38,13 +38,13 @@ function SignIn() {
                     ) : (
                         <>
                             <label htmlFor="email-field">
-                                Email-adres:
+                                Gebruikersnaam:
                                 <input
-                                    type="email"
+                                    type="text"
                                     id="email-field"
                                     name="email"
                                     placeholder="Typ hier uw email"
-                                    {...register("email")}
+                                    {...register("username")}
                                 />
                             </label>
 
