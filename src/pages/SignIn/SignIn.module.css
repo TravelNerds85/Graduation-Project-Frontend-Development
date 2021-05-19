@@ -1,0 +1,78 @@
+/*.background-signIn {*/
+/*    background-image: url("../../assets/Background.jpg");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*    height: 90vh;*/
+/*}*/
+
+.container-sign-in {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-height: 90vh;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #090808;
+    opacity: 0.8;
+    width: 700px;
+    margin: 100px auto;
+    padding: 25px;
+}
+
+.container-sign-in h1 {
+    color: white;
+}
+
+.container-sign-in .error {
+    color: red;
+}
+
+.container-sign-in label {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    margin: 25px auto;
+}
+
+.container-sign-in input {
+    width: 250px;
+    display: inline-block;
+    padding: 5px;
+    margin: 0 25px 10px;
+}
+
+.login {
+    font-size: 21px;
+    border-radius: 4px;
+    background: #256ce1;
+    padding: 10px 22px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    margin: 15px;
+}
+
+.login:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
+
+
+.redirect-sign-in {
+    color: white;
+}
+
+.redirect-sign-in a {
+    color: dodgerblue;
+}
+
+.redirect-sign-in a:hover {
+    color: deeppink;
+}

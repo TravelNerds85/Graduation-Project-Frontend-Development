@@ -1,0 +1,19 @@
+.searchDeleted {
+    font-size: 21px;
+    border-radius: 4px;
+    background: #256ce1;
+    padding: 3px 22px;
+    margin: 15px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.searchDeleted:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
