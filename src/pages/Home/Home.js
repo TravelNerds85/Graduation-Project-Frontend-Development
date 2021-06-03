@@ -8,11 +8,11 @@ function Home() {
             <div className={styles['background-home']}>
                 <div className={styles['container-home']}>
                     <div className={styles['notification-home']}>
-                        <h1>Welkom!</h1>
-                        <p>Wat leuk dat je een kijkje komt nemen op de</p>
+                        <h1>Welcome!</h1>
+                        <p>How nice that you have decided to take a look at the </p>
                         <p className={styles['title-home']}>Unofficial Netflix Guide for Travellers.</p>
-                        <p>Hier kun je zien of je favoriete films en series beschikbaar zijn op je bestemming.</p>
-                        <p>Ook kun je kijken welke films en series, toegevoegd en verwijderd zullen worden.</p>
+                        <p>Here you can check if your favourite movies and series are available at your destination.</p>
+                        <p>You can also check which movies and series will get deleted.</p>
                     </div>
                     <div>
                         <BtnGetStarted/>

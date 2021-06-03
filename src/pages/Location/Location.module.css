@@ -1,21 +1,22 @@
 .container-location {
+    background-image: url("../../assets/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /*max-height: 90vh;*/
     text-align: center;
-    border-radius: 25px;
-    background-color: #090808;
-    opacity: 0.8;
-    width: 700px;
-    margin: 100px auto;
+    background-color: #494646FF;
     padding: 25px;
 }
 
 .container-location h1 {
     color: white;
-    margin: 5px 15px 15px;
+    margin: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 54px;
 }
 
 .container-location ul {
@@ -23,32 +24,36 @@
     list-style-type: none;
 }
 
+.container-location p {
+    text-align: center;
+    color: white;
+    list-style-type: none;
+    padding: 5px;
+    font-size: 25px;
+}
+
+.response {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-height: 90vh;
+    width: auto;
+    text-align: center;
+    border-radius: 25px;
+    background-color: black;
+    padding: 25px;
+    margin: 10px;
+}
+
+li {
+    padding: 5px;
+}
+
 .container-location .error {
     color: red;
 }
 
-.search-location {
-    width: 300px;
-    height: 30px;
-    padding: 5px;
-}
-
-.searchLocation {
-    font-size: 21px;
-    border-radius: 4px;
-    background: #256ce1;
-    padding: 10px 22px;
-    margin: 15px;
-    color: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-}
-
-.searchLocation:hover {
-    transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
+.countryCode {
+    text-transform: uppercase;
 }

@@ -1,30 +1,31 @@
-/*.background-signIn {*/
-/*    background-image: url("../../assets/Background.jpg");*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
-/*    height: 90vh;*/
-/*}*/
-
-.container-sign-in {
+.background-signIn {
+    background-image: url("../../assets/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    max-height: 90vh;
+}
+
+.container-sign-in {
+
     text-align: center;
     border-radius: 25px;
     background-color: #090808;
-    opacity: 0.8;
+    opacity: 0.9;
     width: 700px;
     margin: 100px auto;
     padding: 25px;
 }
 
 .container-sign-in h1 {
-    color: white;
+    color: #15cdfc;
+    letter-spacing: 2px;
 }
 
-.container-sign-in .error {
+.container-sign-in form .error {
     color: red;
 }
 
@@ -35,6 +36,14 @@
     align-items: center;
     color: white;
     margin: 25px auto;
+}
+
+#username-login {
+    margin-left: 100px;
+}
+
+#password-login {
+    margin-left: 106px;
 }
 
 .container-sign-in input {
@@ -55,7 +64,8 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
-    margin: 15px;
+    margin-bottom: 20px;
+
 }
 
 .login:hover {
@@ -70,7 +80,7 @@
 }
 
 .redirect-sign-in a {
-    color: dodgerblue;
+    color:  #15cdfc;
 }
 
 .redirect-sign-in a:hover {

@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import axios from 'axios';
 import {useForm} from 'react-hook-form';
-import {Link} from "react-router-dom";
+import {Link, Redirect,} from "react-router-dom";
 import {AuthContext} from '../../context/AuthContext';
 import styles from './SignIn.module.css';
 
@@ -9,7 +9,7 @@ function SignIn() {
     const {handleSubmit, register} = useForm();
     const [error, toggleError] = useState(false);
     const [success, toggleSuccess] = useState(false);
-    const {logIn} = useContext(AuthContext);
+    const {logIn, user} = useContext(AuthContext);
     console.log(logIn);
 
     const host = 'https://polar-lake-14365.herokuapp.com';
@@ -27,34 +27,37 @@ function SignIn() {
             console.error(e);
         }
     }
+    if (user) {
+        return <Redirect to="/profile"/>
+    }
 
     return (
         <div className={styles['background-signIn']}>
             <div className={styles['container-sign-in']}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <h1>Inloggen</h1>
+                    <h1>Sign in</h1>
                     {success ? (
-                        <h2>Inloggen is gelukt! Je wordt nu doorgestuurd.</h2>
+                        <h2>Login succeeded! You're being transferred.</h2>
                     ) : (
                         <>
-                            <label htmlFor="email-field">
-                                Gebruikersnaam:
+                            <label htmlFor="username">
+                                Username:
                                 <input
                                     type="text"
-                                    id="email-field"
-                                    name="email"
-                                    placeholder="Typ hier uw email"
+                                    id={styles["username-login"]}
+                                    name="username"
+                                    placeholder="Enter username here"
                                     {...register("username")}
                                 />
                             </label>
 
                             <label htmlFor="password-field">
-                                Wachtwoord:
+                                Password:
                                 <input
                                     type="password"
-                                    id="password-field"
+                                    id={styles["password-login"]}
                                     name="password"
-                                    placeholder="Typ hier uw wachtwoord"
+                                    placeholder="Enter password here"
                                     {...register("password")}
                                 />
                             </label>
@@ -62,16 +65,14 @@ function SignIn() {
                                 className={styles.login}
                                 type="submit"
                             >
-                                Inloggen
+                                Sign in
                             </button>
                             {' '}
                         </>
                     )}
                     {error && <p className={styles.error}>Er is een fout opgetreden. Probeer het opnieuw.</p>}
                 </form>
-                <p className={styles['redirect-sign-in']}>Heb je nog geen account? <Link to="/sign-up">Meld</Link> je
-                    dan
-                    eerst aan.</p>
+                <p className={styles['redirect-sign-in']}>No account yet? <Link to="/sign-up">Register</Link> here.</p>
             </div>
         </div>
     );

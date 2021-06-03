@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
     Nav,
     NavLink,
@@ -7,31 +7,42 @@ import {
     NavBtn,
     NavBtnLink
 } from "./NavBarElements";
+import {AuthContext} from "../../context/AuthContext";
 
 function NavBar() {
+    const {user, logOut} = useContext(AuthContext);
+
+
     return (
         <>
             <Nav>
                 <NavLink to="/">
                     Unofficial Netflix Guide for Travellers
                 </NavLink>
-                <Bars />
+                <Bars/>
                 <NavMenu>
-                    <NavLink to="/location" activeStyle>
-                        Locatie
-                    </NavLink>
-                    <NavLink to="/new" activeStyle>
-                        Nieuw
-                    </NavLink>
-                    <NavLink to="/deleted" activeStyle>
-                        Laatste kans
-                    </NavLink>
-                    <NavLink to="/sign-up" activeStyle>
-                        Aanmelden
-                    </NavLink>
+                    <NavLink to="/location" activeStyle>Location</NavLink>
+                    <NavLink to="/links" activeStyle>Links</NavLink>
+                    <NavLink to="/sign-up" activeStyle>Register</NavLink>
+
+
+                    <NavLink to="/new" activeStyle>New</NavLink>
+                    <NavLink to="/deleted" activeStyle>Last chance</NavLink>
+
+
+                    {/*{user &&*/}
+                    {/*<NavLink to="/new" activeStyle>New</NavLink>*/}
+                    {/*}*/}
+                    {/*{user &&*/}
+                    {/*<NavLink to="/deleted" activeStyle>Last chance</NavLink>*/}
+                    {/*}*/}
                 </NavMenu>
                 <NavBtn>
-                    <NavBtnLink to="/sign-in">Inloggen</NavBtnLink>
+                    {user ? (
+                        <NavBtnLink to="/" onClick={logOut}>Sign Out</NavBtnLink>
+                    ) : (
+                        <NavBtnLink to="/sign-in">Sign In</NavBtnLink>
+                    )}
                 </NavBtn>
             </Nav>
         </>
@@ -39,23 +50,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-
-// const [navLinkOpen, navLinkToggle] = useState(false)
-
-// function handleNavLinksToggle() {
-//     navLinkToggle(!navLinkOpen);
-// }
-//
-// function renderClasses() {
-//     let classes = 'styled-components';
-//
-//     if (navLinkOpen) {
-//         classes += "active"
-//     }
-//     return classes
-// }
-
-// <div onClick={handleNavLinksToggle} className={styles["hamburger-toggle"]}>
-//     <i className="fas fa-bars fa-lg"> </i>
-// </div>

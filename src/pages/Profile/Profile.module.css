@@ -1,20 +1,27 @@
-.container-profile {
+.background-profile {
+    background-image: url("../../assets/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    max-height: 90vh;
+}
+
+.container-profile {
     text-align: center;
     border-radius: 25px;
     background-color: #090808;
     opacity: 0.8;
     width: 700px;
-    margin: 100px auto;
-    padding: 25px;
+    margin: 50px auto;
+    padding: 50px;
 }
 
 .user {
-    color: #15cdfc;
+    /*color: #15cdfc;*/
+    color: #256ce1;
     font-size: 54px;
     font-weight: normal;
     letter-spacing: 2px;
@@ -32,6 +39,26 @@
     font-size: 21px;
     font-weight: normal;
     margin-bottom: 10px;
+}
+
+.profile button {
+    font-size: 21px;
+    border-radius: 4px;
+    background: #256ce1;
+    padding: 10px 22px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    margin: 25px 10px 10px;
+}
+
+.profile button:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
 }
 
 /*.container-profile li {*/

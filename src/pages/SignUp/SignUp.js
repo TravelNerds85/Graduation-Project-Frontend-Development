@@ -35,39 +35,39 @@ function SignUp() {
         <div className={styles['background-signUp']}>
         <div className={styles['container-signup']}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <h1>Aanmelden</h1>
-                <p>Wat leuk dat je hebt besloten om je aan te melden!</p><p>Vul snel onderstaande gegevens in.</p>
+                <h1>Register</h1>
+                <p>Good to see that you have decided to sign up!</p><p>Please fill in the required information.</p>
 
                 {success ? (
-                    <h2>Aanmelden gelukt!</h2>
+                    <h2>Register successful!</h2>
                 ) : (
                     <>
                         <label htmlFor="email-field">
-                            Email-adres:
+                            Email:
                             <input
                                 type="email"
                                 id={styles["email-field"]}
-                                placeholder="Typ hier je email-adres"
+                                placeholder="Enter email here"
                                 name="email"
                                 {...register("email")}
                             />
                         </label>
                         <label htmlFor="username-field">
-                            Gebruikersnaam:
+                            Username:
                             <input
                                 type="text"
                                 id={styles["username-field"]}
-                                placeholder="Typ hier je gebruikersnaam"
+                                placeholder="Enter username here"
                                 name="username"
                                 {...register("username")}
                             />
                         </label>
                         <label htmlFor="password-field">
-                            Wachtwoord:
+                            Password:
                             <input
                                 type="password"
                                 id={styles["password-field"]}
-                                placeholder="Typ hier je wachtwoord"
+                                placeholder="Enter password here"
                                 name="password"
                                 {...register("password")}
                             />
@@ -76,15 +76,14 @@ function SignUp() {
                             type="submit"
                             className={styles.register}
                         >
-                            Maak account aan
+                            Create account
                         </button>
                         {' '}
                     </>
                 )}
-                {error && <p className={styles.error}>Er is een fout opgetreden. Probeer het opnieuw.</p>}
+                {error && <p className={styles.error}>Something went wrong, please try again.</p>}
             </form>
-            <p className={styles.redirect}>Heb je al een account? Je kunt <Link to="/sign-in">hier</Link> inloggen.
-            </p>
+            <p className={styles.redirect}>You already have an account? Click <Link to="/sign-in">here</Link> to sign in.</p>
         </div>
 </div>
     );

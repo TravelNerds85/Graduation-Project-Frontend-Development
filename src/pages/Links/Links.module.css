@@ -1,0 +1,46 @@
+.background-links {
+    background-image: url("../../assets/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-links {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /*max-height: 90vh;*/
+    text-align: center;
+    border-radius: 25px;
+    background-color: #090808;
+    opacity: 0.9;
+    width: 800px;
+    padding: 25px;
+}
+
+.container-links h1 {
+    color: #15cdfc;
+    letter-spacing: 1px;
+}
+
+.container-links a {
+    color: #15cdfc;
+    margin: 5px 15px 15px;
+    letter-spacing: 1px;
+}
+
+.container-links p {
+    color: #ffffff;
+    list-style-type: none;
+    margin: 25px;
+}
+
+.container-links ul {
+    color: white;
+    list-style-type: none;
+}

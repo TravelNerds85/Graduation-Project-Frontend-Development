@@ -10,7 +10,7 @@ function BtnSearchDeleted() {
                     type="button"
                     // onClick={fetchDataDeleted}
             >
-                Zoek
+                Search
             </button>
     );
 }

@@ -3,23 +3,23 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    /*max-height: 90vh;*/
     text-align: center;
     border-radius: 25px;
     background-color: #090808;
     opacity: 0.8;
     width: 700px;
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 25px;
 }
 
 .container-deleted h1 {
-    color: white;
+    color: #15cdfc;
     margin: 5px 15px 15px;
+    letter-spacing: 2px;
 }
 
 .container-deleted p {
-    color: dodgerblue;
+    color: #15cdfc;
     margin: 5px 15px 15px;
 }
 
@@ -32,9 +32,50 @@
     color: red;
 }
 
-/*.search-deleted {*/
-/*    width: 300px;*/
-/*    height: 30px;*/
-/*    padding: 5px;*/
-/*    margin-right: 15px;*/
-/*}*/
+.search-deleted {
+    width: 300px;
+    height: 30px;
+    padding: 5px;
+    margin-right: 15px;
+}
+
+.searchDeleted {
+    font-size: 21px;
+    border-radius: 4px;
+    background: #256ce1;
+    padding: 10px 22px;
+    margin: 15px;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.searchDeleted:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
+}
+
+.deleted-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}
+
+.result-deleted {
+    list-style-type: none;
+    border: 1px solid rgba(173, 173, 173);
+    border-radius: 15px;
+    opacity: 0.9;
+    background-color: #090808;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+.result-deleted li {
+    color: white;
+}

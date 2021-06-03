@@ -15,7 +15,7 @@ function AuthContextProvider({ children }) {
     useEffect(() => {
         const token = localStorage.getItem('JWT_token');
 
-        if (token !== undefined && authState.user === null) {
+        if (token !== null && authState.user === null) {
             logIn(token)
         } else {
             setAuthState({
@@ -28,10 +28,8 @@ function AuthContextProvider({ children }) {
     async function logIn(jwt) {
         console.log(jwt);
         const decoded = jwt_decode(jwt);
-        const userId = decoded.sub;
         console.log('DECODED JWT', decoded);
         localStorage.setItem('JWT_token', jwt);
-        history.push('/profile');
 
         try {
             const result = await axios.get(
@@ -58,8 +56,12 @@ function AuthContextProvider({ children }) {
         }
     }
     function logOut() {
-        // Leeghalen local storage met localStorage.clear();
-        // user in Context op null zetten
+        localStorage.clear();
+        setAuthState({
+            user: null,
+            status: "done",
+        })
+        history.push("/");
     }
 
     const data = {
@@ -71,13 +73,8 @@ function AuthContextProvider({ children }) {
     return (
         <AuthContext.Provider value={data}>
             {children}
-            {/* {authState.status === 'done' ? (
-				children
-			) : (
-				<p>Loading...</p>
-			)} */}
         </AuthContext.Provider>
     );
 }
 
-export default AuthContextProvider
+export default AuthContextProvider;

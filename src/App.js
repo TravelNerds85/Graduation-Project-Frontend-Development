@@ -1,4 +1,5 @@
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import {Route, Switch} from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './pages/Home/Home';
 import Location from './pages/Location/Location';
@@ -7,37 +8,39 @@ import SignUp from './pages/SignUp/SignUp';
 import New from "./pages/New/New";
 import Deleted from "./pages/Deleted/Deleted";
 import Profile from "./pages/Profile/Profile";
-// import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Links from "./pages/Links/Links";
 import './App.modules.css';
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
-
     return (
         <>
-            <NavBar />
+            <NavBar/>
             <Switch>
-                <Route path="/" exact component={Home} />
-                {/*<PrivateRoute path="/deleted" isLoggedIn={isAuthenticated}>*/}
-                {/*    <Deleted />*/}
-                {/*</PrivateRoute>*/}
-                {/*<PrivateRoute path="/location" isLoggedIn={isAuthenticated}>*/}
-                {/*    <Location />*/}
-                {/*</PrivateRoute>*/}
-                {/*<PrivateRoute path="/new" isLoggedIn={isAuthenticated}>*/}
-                {/*    <New />*/}
-                {/*</PrivateRoute>*/}
-                {/*<PrivateRoute path="/profile" isLoggedIn={isAuthenticated}>*/}
-                {/*    <Profile />*/}
-                {/*</PrivateRoute>*/}
+                <Route path="/" exact component={Home}/>
+                <Route path="/location" exact component={Location}/>
+                <Route path="/sign-in" exact component={SignIn}/>
+                <Route path="/sign-up" exact component={SignUp}/>
+                <Route path="/links" exact component={Links}/>
 
-                <Route path="/sign-in" exact component={SignIn} />
-                <Route path="/sign-up" exact component={SignUp} />
-                <Route path="/deleted" exact component={Deleted} />
-                <Route path="/location" exact component={Location} />
-                <Route path="/new" exact component={New} />
-                <Route path="/profile" exact component={Profile} />
+
+                <Route path="/deleted" exact component={Deleted}/>
+                <Route path="/new" exact component={New}/>
+
+
+                {/*<PrivateRoute path="/deleted">*/}
+                {/*    <Deleted/>*/}
+                {/*</PrivateRoute>*/}
+                {/*<PrivateRoute path="/new">*/}
+                {/*    <New/>*/}
+                {/*</PrivateRoute>*/}
+                <PrivateRoute path="/profile">
+                    <Profile/>
+                </PrivateRoute>
             </Switch>
         </>
     );
 }
+
+
 export default App;

@@ -1,21 +1,33 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext';
+import React, {useContext} from 'react';
+import {AuthContext} from '../../context/AuthContext';
 import styles from './Profile.module.css';
+import {useHistory} from "react-router-dom";
 
 function Profile() {
-    const { user } = useContext(AuthContext);
-    console.log('profile', user?.username)
+    const history = useHistory();
+    const {user} = useContext(AuthContext);
 
     return (
-        <div className={styles['container-profile']}>
-            <h1>Welkom</h1><span className={styles.user}>{user && user.username}</span>
-            <p>Wat leuk om je (weer) te zien!</p>
-            <p>Nu je bent aangemeld en ingelogd kun je de gevraagde gegevens bekijken op de website.</p>
-
-            {/*<ul>*/}
-            {/*    <li>Gebruikersnaam: {user && user.username}</li>*/}
-            {/*    <li>E-mail: {user && user.email}</li>*/}
-            {/*</ul>*/}
+        <div className={styles['background-profile']}>
+            <div className={styles['container-profile']}>
+                <h1>Hi <span className={styles.user}>{user && user.username}</span></h1>
+                <p>Good to see you (again)!</p>
+                <p>Now you have registered and signed in you can have a look at the content.</p>
+                <div className={styles.profile}>
+                    <button
+                        type="button"
+                        onClick={() => history.push('/new')}
+                    >
+                        New
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => history.push('/deleted')}
+                    >
+                        Last chance
+                    </button>
+                </div>
+            </div>
         </div>
     );
 }

@@ -1,55 +1,92 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-// import { AuthContext } from '../../context/AuthContext';
 import styles from './New.module.css';
 
+// import NewItem from "../../components/NewItem";
+
 function New() {
-    const [setCountries] = useState([]);
+    const [searchNew, setSearchNew] = useState([]);
     const [error, setError] = useState("");
     const [loading, toggleLoading] = useState(false);
+    const [searchText, setSearchText] = useState('');
 
-    useEffect(() => {
-        async function fetchData() {
-            setError("");
-            toggleLoading(true);
-
-            try {
-                const response = await axios.get(
-                    // 'https://unogsng.p.rapidapi.com/titlecountries',
-                    {
-                        params: {netflixid: '81043135'},
-                        headers: {
-                            "x-rapidapi-key":
-                                "5f8cd96691msh979b7a58ac3d79bp1afb83jsndb0fb614cce9",
-                            "x-rapidapi-host": "unogsng.p.rapidapi.com",
-                        },
-                    }
-                );
-                console.log('RESPONSE', response)
-                setCountries(response.data.results);
-
-            } catch (e) {
-                setError("Er is iets mis gegaan bij het ophalen van de data 😢");
-                console.error(e);
-            }
-            toggleLoading(false);
+    function keyPressCheck(e) {
+        if (e.keyCode === 13) {
+            fetchData();
         }
+    }
 
-        fetchData();
-    }, []);
+    async function fetchData() {
+        setError("");
+        toggleLoading(true);
+        try {
+            const response = await axios.get(
+                'https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi',
+                {
+                    params: {q: `get:new2:${searchText}`, p: '1', t: 'ns', st: 'adv'},
+                    headers: {
+                        'x-rapidapi-key': '5f8cd96691msh979b7a58ac3d79bp1afb83jsndb0fb614cce9',
+                        'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com'
+                    }
+                }
+            );
+
+
+            console.log('RESPONSE', response.data.ITEMS)
+            setSearchNew(response.data.ITEMS);
+
+        } catch (e) {
+            setError("Something went wrong... 😢");
+            console.error(e);
+        }
+        toggleLoading(false);
+        console.log(searchText);
+    }
+
+
+    // useEffect(() => {
+    //     fetchData();
+    // }, []);
 
 
     return (
         <>
             <div className={styles['container-new']}>
-                <h1>Nieuw toegevoegd</h1>
-                {/*<input className={styles['search-new']} type="text" placeholder="Typ hier je bestemmingsland.." />*/}
-                {/*<button className={styles.searchNew}>Zoek</button>*/}
-                <ul>
-                    {error && <p className={styles.error}>{error}</p>}
-                    {loading && <p>Data wordt geladen...</p>}
-                </ul>
+                <h1>New</h1>
+                <p>The following movies and series will be added to Netflix</p>
+                <p>If you don't know the country code, please check the location page.</p>
+
+                <input
+                    className={styles['search-new']}
+                    type="text"
+                    value={searchText}
+                    onChange={(event) => setSearchText(event.target.value)}
+                    placeholder="Please enter country code"
+                    onKeyDown={keyPressCheck}
+                />
+                <button
+                    className={styles.searchNew}
+                    onClick={fetchData}
+                >
+                    Search
+                </button>
+                {error && <p className={styles.error}>{error}</p>}
+                {loading && <p>Data is being loaded...</p>}
             </div>
+
+                <ul className={styles['result-container']}>
+                    {searchNew &&
+                    searchNew.map((searchNew) => {
+                        return <div className={styles['result-new']}><li key={searchNew.title}>{searchNew.title}
+                            <img src={searchNew.image} alt={searchNew.title}/>
+                            <li>{searchNew.type}</li>
+                            <li>New date: {searchNew.unogsdate}</li>
+                            <li dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
+                        </li>
+                        </div>
+                    })}
+                </ul>
+
 
         </>
     );
