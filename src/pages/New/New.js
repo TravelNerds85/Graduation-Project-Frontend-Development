@@ -9,6 +9,7 @@ function New() {
     const [error, setError] = useState("");
     const [loading, toggleLoading] = useState(false);
     const [searchText, setSearchText] = useState('');
+    const [countries, setCountries] = useState([]);
 
     function keyPressCheck(e) {
         if (e.keyCode === 13) {
@@ -43,11 +44,33 @@ function New() {
         console.log(searchText);
     }
 
+    useEffect(() => {
+        async function fetchData() {
+            setError("");
+            toggleLoading(true);
+            try {
+                const response = await axios.get(
+                    'https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi',
+                    {
+                        params: {t: 'lc', q: 'available'},
+                        headers: {
+                            'x-rapidapi-key': '5f8cd96691msh979b7a58ac3d79bp1afb83jsndb0fb614cce9',
+                            'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
+                        },
+                    }
+                );
+                console.log('RESPONSE: ', response.data)
+                setCountries(response.data.ITEMS);
+            } catch (e) {
+                setError("Something went wrong... 😢");
+                console.error(e);
+            }
+            toggleLoading(false);
+        }
+        fetchData();
+    }, []);
 
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
-
+    console.log(countries)
 
     return (
         <>
@@ -63,10 +86,20 @@ function New() {
                     onChange={(event) => setSearchText(event.target.value)}
                     placeholder="Please enter country code"
                     onKeyDown={keyPressCheck}
+                    list='countries'
                 />
+                <datalist id="countries">
+                    {countries &&
+                    countries.map((country) => {
+                        console.log(country)
+                        return <option value={country[1].toUpperCase()}>{country[2]}</option>
+                    })}
+                </datalist>
                 <button
+                    type="submit"
                     className={styles.searchNew}
                     onClick={fetchData}
+                    disabled={!searchText}
                 >
                     Search
                 </button>
@@ -74,22 +107,23 @@ function New() {
                 {loading && <p>Data is being loaded...</p>}
             </div>
 
-                <ul className={styles['result-container']}>
-                    {searchNew &&
-                    searchNew.map((searchNew) => {
-                        return <div className={styles['result-new']}><li key={searchNew.title}>{searchNew.title}
+            <ul className={styles['result-container']}>
+                {searchNew &&
+                searchNew.map((searchNew) => {
+                    return <div className={styles['result-new']}>
+                        <li key={searchNew.title}>{searchNew.title}
                             <img src={searchNew.image} alt={searchNew.title}/>
                             <li>{searchNew.type}</li>
                             <li>New date: {searchNew.unogsdate}</li>
                             <li dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
                         </li>
-                        </div>
-                    })}
-                </ul>
+                    </div>
+                })}
+            </ul>
 
 
         </>
-    );
+);
 }
 
 export default New;

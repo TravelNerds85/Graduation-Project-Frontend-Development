@@ -6,12 +6,12 @@ import styles from './SignUp.module.css';
 
 function SignUp() {
     const [success, toggleSuccess] = useState(false);
-    const [error, toggleError] = useState(false);
+    const [error, toggleError] = useState(null);
     const history = useHistory();
     const {handleSubmit, register} = useForm();
 
     async function onSubmit(data) {
-        toggleError(false);
+        toggleError(null);
         console.log(data);
         try {
             const result = await axios.post('https://polar-lake-14365.herokuapp.com/api/auth/signup', {
@@ -27,7 +27,8 @@ function SignUp() {
             }, 1500);
         } catch (e) {
             console.error(e)
-            toggleError(true);
+            toggleError(e.response.data.message);
+            console.log(e.response.data.message)
         }
     }
 
@@ -81,7 +82,7 @@ function SignUp() {
                         {' '}
                     </>
                 )}
-                {error && <p className={styles.error}>Something went wrong, please try again.</p>}
+                {error && <p className={styles.error}>{error}</p>}
             </form>
             <p className={styles.redirect}>You already have an account? Click <Link to="/sign-in">here</Link> to sign in.</p>
         </div>

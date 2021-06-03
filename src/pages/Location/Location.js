@@ -40,13 +40,13 @@ function Location() {
                 <p>On this website you can find information for the following countries:</p>
                 {error && <p className={styles.error}>{error}</p>}
                 {loading && <p>Data is being loaded...</p>}
+
                 <ul>
                     {countries &&
                     countries.map((country) => {
+                        console.log(country);
                         return <div className={styles.response}>
                             <li key={country.name}>{country[2]}
-                                <li className={styles.countryCode} key={country.code}>Country code: {country[1]}</li>
-                                {/*<Text style={{}}> {'Test'.toUpperCase()} </Text>*/}
                             </li>
                         </div>
                     })}
