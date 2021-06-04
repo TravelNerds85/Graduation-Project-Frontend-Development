@@ -10,21 +10,18 @@ function SignIn() {
     const [error, toggleError] = useState(false);
     const [success, toggleSuccess] = useState(false);
     const {logIn, user} = useContext(AuthContext);
-    console.log(logIn);
 
     const host = 'https://polar-lake-14365.herokuapp.com';
 
     async function onSubmit(data) {
         toggleError(false)
-        console.log('before request', data);
         try {
             const result = await axios.post(`${host}/api/auth/signin`, data);
-            console.log('after request', result)
             logIn(result.data.accessToken)
             toggleSuccess(true);
             localStorage.setItem('token', result.data.accessToken)
         } catch (e) {
-            toggleError(true);
+            toggleError(e.response.data);
             console.error(e);
         }
     }
@@ -48,7 +45,7 @@ function SignIn() {
                                     id={styles["username-login"]}
                                     name="username"
                                     placeholder="Enter username here"
-                                    {...register("username")}
+                                    {...register("username", {required: true})}
                                 />
                             </label>
 
@@ -59,12 +56,12 @@ function SignIn() {
                                     id={styles["password-login"]}
                                     name="password"
                                     placeholder="Enter password here"
-                                    {...register("password")}
+                                    {...register("password", {required: true})}
                                 />
                             </label>
                             <button
-                                className={styles.login}
                                 type="submit"
+                                className={styles.login}
                             >
                                 Sign in
                             </button>

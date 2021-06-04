@@ -8,7 +8,7 @@ function SignUp() {
     const [success, toggleSuccess] = useState(false);
     const [error, toggleError] = useState(null);
     const history = useHistory();
-    const {handleSubmit, register} = useForm();
+    const {handleSubmit, register, formState: { errors }} = useForm();
 
     async function onSubmit(data) {
         toggleError(null);
@@ -26,9 +26,8 @@ function SignUp() {
                 history.push('/sign-in');
             }, 1500);
         } catch (e) {
-            console.error(e)
             toggleError(e.response.data.message);
-            console.log(e.response.data.message)
+            console.error(e)
         }
     }
 
@@ -50,7 +49,7 @@ function SignUp() {
                                 id={styles["email-field"]}
                                 placeholder="Enter email here"
                                 name="email"
-                                {...register("email")}
+                                {...register("email",  { required: true })}
                             />
                         </label>
                         <label htmlFor="username-field">
@@ -60,7 +59,7 @@ function SignUp() {
                                 id={styles["username-field"]}
                                 placeholder="Enter username here"
                                 name="username"
-                                {...register("username")}
+                                {...register("username", { required: true, maxLength: 20 })}
                             />
                         </label>
                         <label htmlFor="password-field">
@@ -70,7 +69,7 @@ function SignUp() {
                                 id={styles["password-field"]}
                                 placeholder="Enter password here"
                                 name="password"
-                                {...register("password")}
+                                {...register("password", { required: true })}
                             />
                         </label>
                         <button
@@ -79,9 +78,11 @@ function SignUp() {
                         >
                             Create account
                         </button>
-                        {' '}
                     </>
                 )}
+                {errors.username && <p className={styles.error}>This field is required</p>}
+                {errors.password && <p className={styles.error}>This field is required</p>}
+                {errors.email && <p className={styles.error}>This field is required</p>}
                 {error && <p className={styles.error}>{error}</p>}
             </form>
             <p className={styles.redirect}>You already have an account? Click <Link to="/sign-in">here</Link> to sign in.</p>

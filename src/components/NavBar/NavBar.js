@@ -28,10 +28,14 @@ function NavBar() {
 
                     <NavLink to="/new" activeStyle>New</NavLink>
                     <NavLink to="/deleted" activeStyle>Last chance</NavLink>
+                    <NavLink to="/country" activeStyle>Country Info</NavLink>
 
 
                     {/*{user &&*/}
                     {/*<NavLink to="/new" activeStyle>New</NavLink>*/}
+                    {/*}*/}
+                    {/*{user &&*/}
+                    {/*<NavLink to="/country" activeStyle>Country Info</NavLink>*/}
                     {/*}*/}
                     {/*{user &&*/}
                     {/*<NavLink to="/deleted" activeStyle>Last chance</NavLink>*/}

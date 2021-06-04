@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './Deleted.module.css';
 import axios from "axios";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 // import DeletedItems from "../../components/DeletedItems";
 
@@ -11,13 +12,7 @@ function Deleted() {
     const [loading, toggleLoading] = useState(false);
     const [searchDeleted, setSearchDeleted] = useState('');
 
-    function keyPressCheck(e) {
-        if (e.keyCode === 13) {
-            fetchData();
-        }
-    }
-
-    async function fetchData() {
+    async function fetchSearchData() {
         setError('');
         toggleLoading(true);
         try {
@@ -42,31 +37,13 @@ function Deleted() {
         console.log(searchDeleted)
     }
 
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
 
     return (
         <>
             <div className={styles['container-deleted']}>
                 <h1>Last chance</h1>
                 <p>The following movies and series will be deleted</p>
-                <p>If you don't know the country code, please check the location page.</p>
-
-                <input
-                    className={styles['search-deleted']}
-                    type="text"
-                    value={searchDeleted}
-                    onChange={(event) => setSearchDeleted(event.target.value)}
-                    placeholder="Please enter country code"
-                    onKeyDown={keyPressCheck}
-                />
-                <button
-                    className={styles.searchDeleted}
-                    onClick={fetchData}
-                >
-                    Search
-                </button>
+                <SearchBar fetchSearchData={fetchSearchData} searchText={searchDeleted} setSearchText={setSearchDeleted} />
                 {error && <p className={styles.error}>{error}</p>}
                 {loading && <p>Data is being loaded...</p>}
             </div>
@@ -77,7 +54,6 @@ function Deleted() {
                         <li key={deleted.title}>{deleted.title}
                             <img src={deleted.image} alt={deleted.title}/>
                             <li dangerouslySetInnerHTML={{__html: deleted.synopsis}}></li>
-
                         </li>
                     </div>
                 })}

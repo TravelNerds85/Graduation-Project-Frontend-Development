@@ -9,6 +9,7 @@ import New from "./pages/New/New";
 import Deleted from "./pages/Deleted/Deleted";
 import Profile from "./pages/Profile/Profile";
 import Links from "./pages/Links/Links";
+import Country from "./pages/Country/Country";
 import './App.modules.css';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
@@ -26,6 +27,7 @@ function App() {
 
                 <Route path="/deleted" exact component={Deleted}/>
                 <Route path="/new" exact component={New}/>
+                <Route path="/country" exact component={Country}/>
 
 
                 {/*<PrivateRoute path="/deleted">*/}
@@ -33,6 +35,9 @@ function App() {
                 {/*</PrivateRoute>*/}
                 {/*<PrivateRoute path="/new">*/}
                 {/*    <New/>*/}
+                {/*</PrivateRoute>*/}
+                {/*<PrivateRoute path="/country">*/}
+                {/*    <Country/>*/}
                 {/*</PrivateRoute>*/}
                 <PrivateRoute path="/profile">
                     <Profile/>
