@@ -52,31 +52,14 @@ function Deleted() {
                 deleted.map((deleted) => {
                     return <div className={styles['result-deleted']}>
                         <li key={deleted.title} className={styles['title-deleted']}>{deleted.title}
-                            <img className={styles['image-deleted']} src={deleted.image} alt={deleted.title}/>
-                            <li className={styles.type}>{deleted.type}</li>
+                            <img src={deleted.image} alt={deleted.title}/>
+                            <li className={styles['type-deleted']}>{deleted.type}</li>
+                            <li className={styles['date-deleted']}>Expires: {deleted.unogsdate}</li>
                             <li className={styles['synopsis-deleted']} dangerouslySetInnerHTML={{__html: deleted.synopsis}}></li>
                         </li>
                     </div>
                 })}
             </ul>
-
-
-            {/*<button*/}
-            {/*    type="button"*/}
-            {/*    className={styles['btn-previous']}*/}
-            {/*    disabled={!deleted.previous}*/}
-            {/*    onClick={() => setUrl(deleted?.previous)}*/}
-            {/*>*/}
-            {/*    Previous*/}
-            {/*</button>*/}
-            {/*<button*/}
-            {/*    type="button"*/}
-            {/*    className={styles['btn-next']}*/}
-            {/*    disabled={!deleted.next}*/}
-            {/*    onClick={() => setUrl(deleted?.next)}*/}
-            {/*>*/}
-            {/*    Next*/}
-            {/*</button>*/}
         </>
     );
 }

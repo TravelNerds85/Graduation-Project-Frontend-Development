@@ -39,7 +39,8 @@ function New() {
     // console.log(countries)
 
     return (
-        <><div className={styles.container}>
+        <>
+            {/*<div className={styles.container}>*/}
             <div className={styles['container-new']}>
                 <h1>New</h1>
                 <p>The following movies and series will be added to Netflix</p>
@@ -53,7 +54,7 @@ function New() {
                 searchNew.map((searchNew) => {
                     return <div className={styles['result-new']}>
                         <li key={searchNew.title} className={styles.title}>{searchNew.title}
-                            <img className={styles.image} src={searchNew.image} alt={searchNew.title}/>
+                            <img src={searchNew.image} alt={searchNew.title}/>
                             <li className={styles.type}>{searchNew.type}</li>
                             <li className={styles.date}>New date: {searchNew.unogsdate}</li>
                             <li className={styles.synopsis} dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
@@ -61,7 +62,7 @@ function New() {
                     </div>
                 })}
             </ul>
-        </div>
+        {/*</div>*/}
         </>
     );
 }

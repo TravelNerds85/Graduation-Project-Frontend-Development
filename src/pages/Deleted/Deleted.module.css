@@ -34,7 +34,7 @@
 
 .deleted-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto;
     padding: 10px;
 }
 
@@ -55,8 +55,14 @@
     color: #15cdfc;
 }
 
-.image-deleted {
-    width: 238px;
+.type-deleted {
+    font-size: 18px;
+    color: white;
+}
+
+.date-deleted {
+    color: #15cdfc;
+    font-size: 16px;
 }
 
 .synopsis-deleted {
@@ -65,5 +71,5 @@
 }
 
 .synopsis-deleted b {
-    color: #15cdfc;
+    display: none;
 }

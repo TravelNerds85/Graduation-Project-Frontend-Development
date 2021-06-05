@@ -48,7 +48,7 @@ body {
 
 .result-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto;
     padding: 10px;
 }
 
@@ -66,10 +66,6 @@ body {
 .title {
     font-size: 20px;
     color: #15cdfc;
-}
-
-.image {
-    width: 238px;
 }
 
 .type {
