@@ -1,45 +1,4 @@
-// import React, { useState } from 'react';
-// import styles from './SearchBar.module.css';
-//
-//
-// function SearchBar({ setLocationHandler }) {
-//     const [query, setQuery] = useState('');
-//
-//     function handleClick() {
-//         setLocationHandler(query);
-//     }
-//
-//     function keyPressCheck(e) {
-//         if (e.keyCode === 13) {
-//             setLocationHandler(query);
-//         }
-//     }
-//
-//     return (
-//         <span className="searchBar">
-//       <input
-//           type="text"
-//           name="search"
-//           value={query}
-//           onChange={(e) => setQuery(e.target.value)}
-//           onKeyUp={keyPressCheck}
-//           placeholder="Enter destination"
-//       />
-//
-//      <button className={styles['search-button']}
-//              type="button"
-//          onClick={handleClick}
-//      >
-//                 Search
-//             </button>
-//     </span>
-//     );
-// }
-//
-// export default SearchBar;
-
-
-import styles from "../../pages/New/New.module.css";
+import styles from "../SearchBar/SearchBar.module.css";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 

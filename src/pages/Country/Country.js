@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Country.module.css';
 import axios from 'axios';
-// import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 function Country() {
     const [countries, setCountries] = useState([]);
     const [error, setError] = useState('');
     const [loading, toggleLoading] = useState(false);
-    // const [searchCountry, setSearchCountry] = useState('');
+    const [searchCountry, setSearchCountry] = useState('');
 
-    useEffect(() => {
+    // useEffect(() => {
     async function fetchSearchData() {
         setError('');
         toggleLoading(true);
@@ -17,16 +17,17 @@ function Country() {
             const response = await axios.get(
                 'https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi',
                 {
-                    params: {t: 'loadvideo', q: '60029591'},
+                    // params: {t: 'loadvideo', q: `${searchCountry}, 60029591`},
+                    params: {t: 'loadvideo', q: ` 60029591 `},
                     headers: {
                         'x-rapidapi-key': '5f8cd96691msh979b7a58ac3d79bp1afb83jsndb0fb614cce9',
                         'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com'
                     },
                 }
             );
-            console.log('RESPONSE', response.data.RESULT.nfinfo.title);
-            setCountries(response.data.RESULT.nfinfo);
-            console.log('COUNTRIES', countries);
+            console.log('RESPONSE', response);
+            setCountries(response.data);
+            // console.log('COUNTRIES', countries);
 
         } catch (e) {
             setError("Something went wrong... 😢");
@@ -36,27 +37,27 @@ function Country() {
 
         // console.log(searchCountry)
     }
-    fetchSearchData();
-    },[]);
+    // fetchSearchData();
+    // },[]);
 
     return (
         <>
             <div className={styles['container-country']}>
                 <h1>Country</h1>
                 <p>Check out which movies and series are available at your destination.</p>
-                {/*<SearchBar fetchSearchData={fetchSearchData} searchText={searchCountry} setSearchText={setSearchCountry}/>*/}
+                <SearchBar fetchSearchData={fetchSearchData} searchText={searchCountry} setSearchText={setSearchCountry}/>
                 {error && <p className={styles.error}>{error}</p>}
                 {loading && <p>Data is being loaded...</p>}
             </div>
-            {/*<ul className={styles['country-container']}>*/}
-            {/*    {countries &&*/}
-            {/*    countries.map((countries) => {*/}
-            {/*        return <div className={styles['result-country']}>*/}
-            {/*            <li key={countries.title}>{countries.title}*/}
-            {/*            </li>*/}
-            {/*        </div>*/}
-            {/*    })}*/}
-            {/*</ul>*/}
+            <ul className={styles['country-container']}>
+                {countries &&
+                countries.map((countries) => {
+                    return <div className={styles['result-country']}>
+                        <li key={countries.title}>{countries.title}
+                        </li>
+                    </div>
+                })}
+            </ul>
         </>
     );
 }

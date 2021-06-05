@@ -19,7 +19,7 @@ function New() {
             const response = await axios.get(
                 'https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi',
                 {
-                    params: {q: `get:new2:${searchText}`, p: '1', t: 'ns', st: 'adv'},
+                    params: {q: `get:new5:${searchText}`, p: '1', t: 'ns', st: 'adv'},
                     headers: {
                         'x-rapidapi-key': '5f8cd96691msh979b7a58ac3d79bp1afb83jsndb0fb614cce9',
                         'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com'
@@ -39,7 +39,7 @@ function New() {
     // console.log(countries)
 
     return (
-        <>
+        <><div className={styles.container}>
             <div className={styles['container-new']}>
                 <h1>New</h1>
                 <p>The following movies and series will be added to Netflix</p>
@@ -52,19 +52,18 @@ function New() {
                 {searchNew &&
                 searchNew.map((searchNew) => {
                     return <div className={styles['result-new']}>
-                        <li key={searchNew.title}>{searchNew.title}
-                            <img src={searchNew.image} alt={searchNew.title}/>
-                            <li>{searchNew.type}</li>
-                            <li>New date: {searchNew.unogsdate}</li>
-                            <li dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
+                        <li key={searchNew.title} className={styles.title}>{searchNew.title}
+                            <img className={styles.image} src={searchNew.image} alt={searchNew.title}/>
+                            <li className={styles.type}>{searchNew.type}</li>
+                            <li className={styles.date}>New date: {searchNew.unogsdate}</li>
+                            <li className={styles.synopsis} dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
                         </li>
                     </div>
                 })}
             </ul>
-
-
+        </div>
         </>
-);
+    );
 }
 
 export default New;

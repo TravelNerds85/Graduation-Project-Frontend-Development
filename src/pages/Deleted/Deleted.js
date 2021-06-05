@@ -51,9 +51,10 @@ function Deleted() {
                 {deleted &&
                 deleted.map((deleted) => {
                     return <div className={styles['result-deleted']}>
-                        <li key={deleted.title}>{deleted.title}
-                            <img src={deleted.image} alt={deleted.title}/>
-                            <li dangerouslySetInnerHTML={{__html: deleted.synopsis}}></li>
+                        <li key={deleted.title} className={styles['title-deleted']}>{deleted.title}
+                            <img className={styles['image-deleted']} src={deleted.image} alt={deleted.title}/>
+                            <li className={styles.type}>{deleted.type}</li>
+                            <li className={styles['synopsis-deleted']} dangerouslySetInnerHTML={{__html: deleted.synopsis}}></li>
                         </li>
                     </div>
                 })}

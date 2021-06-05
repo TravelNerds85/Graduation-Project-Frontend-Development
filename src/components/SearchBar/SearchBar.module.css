@@ -1,11 +1,10 @@
-input {
+.search-new {
     width: 300px;
     height: 30px;
     padding: 5px;
-    margin-right: 15px;
 }
 
-.search-button {
+.searchNew {
     font-size: 21px;
     border-radius: 4px;
     background: #256ce1;
@@ -19,8 +18,13 @@ input {
     text-decoration: none;
 }
 
-.search-button:hover {
+.searchNew:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
     color: #010606;
+}
+
+.searchNew:disabled {
+    background: grey;
+    color: #fff;
 }
