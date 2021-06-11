@@ -69,6 +69,7 @@ function SignIn() {
                     )}
                     {error && <p className={styles.error}>Username or password invalid, please try again.</p>}
                 </form>
+                <p className={styles['redirect-sign-in']}>Forgot password? Click <Link to="/sign-up">here</Link>.</p>
                 <p className={styles['redirect-sign-in']}>No account yet? <Link to="/sign-up">Register</Link> here.</p>
             </div>
         </div>

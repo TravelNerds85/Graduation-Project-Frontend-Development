@@ -23,13 +23,17 @@ function NavBar() {
                 <NavMenu>
                     <NavLink to="/location" activeStyle>Location</NavLink>
                     <NavLink to="/links" activeStyle>Links</NavLink>
-                    <NavLink to="/sign-up" activeStyle>Register</NavLink>
 
 
                     <NavLink to="/new" activeStyle>New</NavLink>
                     <NavLink to="/deleted" activeStyle>Last chance</NavLink>
                     <NavLink to="/country" activeStyle>Country Info</NavLink>
 
+                    {user ? (
+                        <NavLink to="" activeStyle> </NavLink>
+                    ) : (
+                        <NavLink to="/sign-up" activeStyle>Register</NavLink>
+                    )}
 
                     {/*{user &&*/}
                     {/*<NavLink to="/new" activeStyle>New</NavLink>*/}

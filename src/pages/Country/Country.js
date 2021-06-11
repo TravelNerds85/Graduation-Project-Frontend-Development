@@ -14,19 +14,43 @@ function Country() {
         setError('');
         toggleLoading(true);
         try {
+            // const response = await axios.get(
+            //     'https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi',
+            //     {
+            //         // params: {t: 'loadvideo', q: `${searchCountry}, 60029591`},
+            //         params: {t: 'loadvideo', q: `60029591`},
+            //         headers: {
+            //             'x-rapidapi-key': '5f8cd96691msh979b7a58ac3d79bp1afb83jsndb0fb614cce9',
+            //             'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com'
+            //         },
+            //     }
+
+            // );
             const response = await axios.get(
                 'https://unogs-unogs-v1.p.rapidapi.com/aaapi.cgi',
                 {
-                    // params: {t: 'loadvideo', q: `${searchCountry}, 60029591`},
-                    params: {t: 'loadvideo', q: ` 60029591 `},
+                    params: {
+                        // q: 'get:new7-!1900,2021-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!{downloadable}',
+                        // q: 'get:-!1900,2021-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!{downloadable}',
+                        q: `get:${searchCountry}-!1900,2021-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100-!{downloadable}`,
+                        // q: `get:${searchCountry}-!1900,2021-!0,5-!0,10-!0-!Any-!Any-!Any-!gt100`,
+                        t: 'ns',
+                        // cl: `${searchCountry}`,
+                        cl: 'all',
+                        st: 'adv',
+                        ob: 'Title',
+                        // ob: `${searchCountry}`,
+                        p: '1',
+                        sa: 'and'
+                    },
                     headers: {
                         'x-rapidapi-key': '5f8cd96691msh979b7a58ac3d79bp1afb83jsndb0fb614cce9',
                         'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com'
                     },
                 }
             );
-            console.log('RESPONSE', response);
-            setCountries(response.data);
+            console.log('RESPONSE', response.data.ITEMS);
+            setCountries(response.data.ITEMS);
             // console.log('COUNTRIES', countries);
 
         } catch (e) {
@@ -54,6 +78,7 @@ function Country() {
                 countries.map((countries) => {
                     return <div className={styles['result-country']}>
                         <li key={countries.title}>{countries.title}
+                            <img src={countries.image} alt={countries.title}/>
                         </li>
                     </div>
                 })}

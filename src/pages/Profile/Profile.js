@@ -16,6 +16,12 @@ function Profile() {
                 <div className={styles.profile}>
                     <button
                         type="button"
+                        onClick={() => history.push('/country')}
+                    >
+                        Country Info
+                    </button>
+                    <button
+                        type="button"
                         onClick={() => history.push('/new')}
                     >
                         New

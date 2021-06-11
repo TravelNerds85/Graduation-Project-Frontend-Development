@@ -28,3 +28,7 @@
     background: grey;
     color: #fff;
 }
+
+.error {
+    color: red;
+}
