@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import {Link, useHistory} from 'react-router-dom';
-import {useForm} from 'react-hook-form';
+import { Link, useHistory } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import styles from './SignUp.module.css';
 
 function SignUp() {
     const [success, toggleSuccess] = useState(false);
     const [error, toggleError] = useState(null);
     const history = useHistory();
-    const {handleSubmit, register, formState: { errors }} = useForm();
+    const {handleSubmit, register, formState: {errors}} = useForm();
 
     async function onSubmit(data) {
         toggleError(null);
@@ -32,7 +32,6 @@ function SignUp() {
     }
 
     return (
-        <div className={styles['background-signUp']}>
         <div className={styles['container-signup']}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <h1>Register</h1>
@@ -49,7 +48,7 @@ function SignUp() {
                                 id={styles["email-field"]}
                                 placeholder="Enter email here"
                                 name="email"
-                                {...register("email",  { required: true })}
+                                {...register("email", {required: true})}
                             />
                         </label>
                         <label htmlFor="username-field">
@@ -59,7 +58,7 @@ function SignUp() {
                                 id={styles["username-field"]}
                                 placeholder="Enter username here"
                                 name="username"
-                                {...register("username", { required: true, maxLength: 20 })}
+                                {...register("username", {required: true, maxLength: 20})}
                             />
                         </label>
                         <label htmlFor="password-field">
@@ -69,7 +68,7 @@ function SignUp() {
                                 id={styles["password-field"]}
                                 placeholder="Enter password here"
                                 name="password"
-                                {...register("password", { required: true })}
+                                {...register("password", {required: true})}
                             />
                         </label>
                         <button
@@ -85,9 +84,9 @@ function SignUp() {
                 {errors.email && <p className={styles.error}>This field is required</p>}
                 {error && <p className={styles.error}>{error}</p>}
             </form>
-            <p className={styles.redirect}>You already have an account? Click <Link to="/sign-in">here</Link> to sign in.</p>
+            <p className={styles.redirect}>You already have an account? Click <Link to="/sign-in">here</Link> to
+                sign in.</p>
         </div>
-</div>
     );
 }
 

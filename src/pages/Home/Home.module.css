@@ -1,7 +1,4 @@
 .background-home {
-    background-image: url("../../assets/Background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 90vh;
     display: flex;
     justify-content: center;

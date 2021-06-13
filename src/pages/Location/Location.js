@@ -22,7 +22,6 @@ function Location() {
                         },
                     }
                 );
-                console.log('RESPONSE: ', response.data)
                 setCountries(response.data.ITEMS);
             } catch (e) {
                 setError("Something went wrong... 😢");
@@ -40,17 +39,15 @@ function Location() {
                 <p>On this website you can find information for the following countries:</p>
                 {error && <p className={styles.error}>{error}</p>}
                 {loading && <p>Data is being loaded...</p>}
-
-                <ul>
+                <div>
                     {countries &&
                     countries.map((country) => {
                         console.log(country);
-                        return <div className={styles.response}>
-                            <li key={country.name}>{country[2]}{country[0]}
-                            </li>
-                        </div>
+                        return <ul className={styles.response}>
+                            <li key={country.locationname}>{country[2]}</li>
+                        </ul>
                     })}
-                </ul>
+                </div>
             </div>
         </>
     );

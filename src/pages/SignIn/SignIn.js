@@ -1,8 +1,8 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
-import {useForm} from 'react-hook-form';
-import {Link, Redirect,} from "react-router-dom";
-import {AuthContext} from '../../context/AuthContext';
+import { useForm } from 'react-hook-form';
+import { Link, Redirect } from "react-router-dom";
+import { AuthContext } from '../../context/AuthContext';
 import styles from './SignIn.module.css';
 
 function SignIn() {
@@ -25,53 +25,52 @@ function SignIn() {
             console.error(e);
         }
     }
+
     if (user) {
         return <Redirect to="/profile"/>
     }
 
     return (
-        <div className={styles['background-signIn']}>
-            <div className={styles['container-sign-in']}>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <h1>Sign in</h1>
-                    {success ? (
-                        <h2>Login succeeded! You're being transferred.</h2>
-                    ) : (
-                        <>
-                            <label htmlFor="username">
-                                Username:
-                                <input
-                                    type="text"
-                                    id={styles["username-login"]}
-                                    name="username"
-                                    placeholder="Enter username here"
-                                    {...register("username", {required: true})}
-                                />
-                            </label>
+        <div className={styles['container-sign-in']}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <h1>Sign in</h1>
+                {success ? (
+                    <h2>Login succeeded! You're being transferred.</h2>
+                ) : (
+                    <>
+                        <label htmlFor="username">
+                            Username:
+                            <input
+                                type="text"
+                                id={styles["username-login"]}
+                                name="username"
+                                placeholder="Enter username here"
+                                {...register("username", {required: true})}
+                            />
+                        </label>
 
-                            <label htmlFor="password-field">
-                                Password:
-                                <input
-                                    type="password"
-                                    id={styles["password-login"]}
-                                    name="password"
-                                    placeholder="Enter password here"
-                                    {...register("password", {required: true})}
-                                />
-                            </label>
-                            <button
-                                type="submit"
-                                className={styles.login}
-                            >
-                                Sign in
-                            </button>
-                        </>
-                    )}
-                    {error && <p className={styles.error}>Username or password invalid, please try again.</p>}
-                </form>
-                <p className={styles['redirect-sign-in']}>Forgot password? Click <Link to="/sign-up">here</Link>.</p>
-                <p className={styles['redirect-sign-in']}>No account yet? <Link to="/sign-up">Register</Link> here.</p>
-            </div>
+                        <label htmlFor="password-field">
+                            Password:
+                            <input
+                                type="password"
+                                id={styles["password-login"]}
+                                name="password"
+                                placeholder="Enter password here"
+                                {...register("password", {required: true})}
+                            />
+                        </label>
+                        <button
+                            type="submit"
+                            className={styles.login}
+                        >
+                            Sign in
+                        </button>
+                    </>
+                )}
+                {error && <p className={styles.error}>Username or password invalid, please try again.</p>}
+            </form>
+            <p className={styles['redirect-sign-in']}>Forgot password? Click <Link to="/sign-up">here</Link>.</p>
+            <p className={styles['redirect-sign-in']}>No account yet? <Link to="/sign-up">Register</Link> here.</p>
         </div>
     );
 }

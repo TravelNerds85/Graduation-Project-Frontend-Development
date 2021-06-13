@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import {
     Nav,
     NavLink,
@@ -10,8 +10,7 @@ import {
 import {AuthContext} from "../../context/AuthContext";
 
 function NavBar() {
-    const {user, logOut} = useContext(AuthContext);
-
+    const { user, logOut } = useContext(AuthContext);
 
     return (
         <>
@@ -23,26 +22,20 @@ function NavBar() {
                 <NavMenu>
                     <NavLink to="/location" activeStyle>Location</NavLink>
                     <NavLink to="/links" activeStyle>Links</NavLink>
-
-
-                    <NavLink to="/new" activeStyle>New</NavLink>
-                    <NavLink to="/deleted" activeStyle>Last chance</NavLink>
-                    <NavLink to="/country" activeStyle>Country Info</NavLink>
-
                     {user ? (
                         <NavLink to="" activeStyle> </NavLink>
                     ) : (
                         <NavLink to="/sign-up" activeStyle>Register</NavLink>
                     )}
-                    {/*<NavLink to="/country" activeStyle>Country Info</NavLink>*/}
-                    {/*}*/}
-                    {/*{user &&*/}
-                    {/*{user &&*/}
-                    {/*<NavLink to="/new" activeStyle>New</NavLink>*/}
-                    {/*}*/}
-                    {/*{user &&*/}
-                    {/*<NavLink to="/deleted" activeStyle>Last chance</NavLink>*/}
-                    {/*}*/}
+                    {user &&
+                    <NavLink to="/country" activeStyle>Country Info</NavLink>
+                    }
+                    {user &&
+                    <NavLink to="/new" activeStyle>New</NavLink>
+                    }
+                    {user &&
+                    <NavLink to="/deleted" activeStyle>Last chance</NavLink>
+                    }
                 </NavMenu>
                 <NavBtn>
                     {user ? (

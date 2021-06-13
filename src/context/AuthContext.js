@@ -26,11 +26,9 @@ function AuthContextProvider({ children }) {
     }, []);
 
     async function logIn(jwt) {
-        console.log(jwt);
         const decoded = jwt_decode(jwt);
         console.log('DECODED JWT', decoded);
         localStorage.setItem('JWT_token', jwt);
-
         try {
             const result = await axios.get(
                 'https://polar-lake-14365.herokuapp.com/api/user',
@@ -41,8 +39,6 @@ function AuthContextProvider({ children }) {
                     },
                 }
             );
-            console.log(result);
-
             setAuthState({
                 user: {
                     username: result.data.username,
@@ -55,6 +51,7 @@ function AuthContextProvider({ children }) {
             console.error(e);
         }
     }
+
     function logOut() {
         localStorage.clear();
         setAuthState({
@@ -71,8 +68,8 @@ function AuthContextProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={data}>
-            {children}
+        <AuthContext.Provider value={ data }>
+            { children }
         </AuthContext.Provider>
     );
 }

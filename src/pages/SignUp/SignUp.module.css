@@ -1,19 +1,9 @@
-.background-signUp {
-    background-image: url("../../assets/Background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
 .container-signup {
     text-align: center;
     border-radius: 25px;
     background-color: #090808;
     opacity: 0.9;
+    max-height: 90vh;
     width: 700px;
     margin: 100px auto;
     padding: 25px;
@@ -88,7 +78,7 @@
 }
 
 .redirect a {
-    color:  #15cdfc;
+    color: #15cdfc;
 }
 
 .redirect a:hover {

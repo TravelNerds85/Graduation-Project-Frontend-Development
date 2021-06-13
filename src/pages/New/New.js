@@ -23,22 +23,16 @@ function New() {
                     }
                 }
             );
-            // console.log('RESPONSE', response.data.ITEMS)
             setSearchNew(response.data.ITEMS);
-
         } catch (e) {
             setError("Something went wrong... 😢");
             console.error(e);
         }
         toggleLoading(false);
-        // console.log(searchText);
     }
-
-    // console.log(countries)
 
     return (
         <>
-            {/*<div className={styles.container}>*/}
             <div className={styles['container-new']}>
                 <h1>New</h1>
                 <p>The following movies and series will be added to Netflix</p>
@@ -50,15 +44,14 @@ function New() {
                 {searchNew &&
                 searchNew.map((searchNew) => {
                     return <ul className={styles['result-new']}>
-                            <li key={searchNew.titlenew} className={styles.title} dangerouslySetInnerHTML={{__html: searchNew.title}}></li>
-                            <li key={searchNew.imagenew}><img src={searchNew.image} alt={searchNew.title}/></li>
-                            <li key={searchNew.typenew} className={styles.type}>{searchNew.type}</li>
-                            <li key={searchNew.datenew} className={styles.date}>New date: {searchNew.unogsdate}</li>
-                            <li key={searchNew.synopsisnew} className={styles.synopsis} dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
+                        <li key={searchNew.titlenew} className={styles.title} dangerouslySetInnerHTML={{__html: searchNew.title}}></li>
+                        <li key={searchNew.imagenew}><img src={searchNew.image} alt={searchNew.title}/></li>
+                        <li key={searchNew.typenew} className={styles.type}>{searchNew.type}</li>
+                        <li key={searchNew.datenew} className={styles.date}>New date: {searchNew.unogsdate}</li>
+                        <li key={searchNew.synopsisnew} className={styles.synopsis} dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
                     </ul>
                 })}
             </div>
-            {/*</div>*/}
         </>
     );
 }

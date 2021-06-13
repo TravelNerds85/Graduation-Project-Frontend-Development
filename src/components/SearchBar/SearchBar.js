@@ -1,5 +1,5 @@
 import styles from "../SearchBar/SearchBar.module.css";
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function SearchBar(props) {
@@ -12,6 +12,7 @@ function SearchBar(props) {
             props.fetchSearchData();
         }
     }
+
     useEffect(() => {
         async function fetchCountryData() {
             setError("");
@@ -37,7 +38,7 @@ function SearchBar(props) {
         fetchCountryData();
     }, []);
 
-    return(
+    return (
         <>
             <input
                 className={styles['search-new']}

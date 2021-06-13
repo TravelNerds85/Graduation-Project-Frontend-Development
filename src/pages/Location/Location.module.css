@@ -1,13 +1,9 @@
 .container-location {
-    background-image: url("../../assets/Background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #494646FF;
     padding: 25px;
 }
 
@@ -53,7 +49,3 @@ li {
 .container-location .error {
     color: red;
 }
-
-/*.countryCode {*/
-/*    text-transform: uppercase;*/
-/*}*/

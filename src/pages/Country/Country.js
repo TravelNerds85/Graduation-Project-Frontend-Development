@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Country.module.css';
 import axios from 'axios';
 
@@ -29,7 +29,6 @@ function Country() {
                         },
                     }
                 );
-                console.log('RESPONSE', response.data.ITEMS);
                 setCountries(response.data.ITEMS);
 
             } catch (e) {
@@ -46,12 +45,13 @@ function Country() {
             <div className={styles['container-construction']}>
                 <h1>Country Info</h1>
                 <h2>Searching by country is under construction...</h2>
-                <h3>At the moment you can only check out these movies and series which are available at <span>all </span>
+                <h3>At the moment you can only check out these movies and series which are available
+                    at <span>all </span>
                     destinations.</h3>
                 {error && <p className={styles.error}>{error}</p>}
                 {loading && <p>Data is being loaded...</p>}
                 <div className={styles['container-country']}>
-                   {/*    /!*<SearchBar fetchSearchData={fetchSearchData} searchText={searchCountry} setSearchText={setSearchCountry}/>*!/*/}
+                    {/*    /!*<SearchBar fetchSearchData={fetchSearchData} searchText={searchCountry} setSearchText={setSearchCountry}/>*!/*/}
                 </div>
             </div>
             <div className={styles['result-container']}>

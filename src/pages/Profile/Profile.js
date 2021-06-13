@@ -5,10 +5,9 @@ import {useHistory} from "react-router-dom";
 
 function Profile() {
     const history = useHistory();
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     return (
-        <div className={styles['background-profile']}>
             <div className={styles['container-profile']}>
                 <h1>Hi <span className={styles.user}>{user && user.username}</span></h1>
                 <p>Good to see you (again)!</p>
@@ -34,7 +33,6 @@ function Profile() {
                     </button>
                 </div>
             </div>
-        </div>
     );
 }
 

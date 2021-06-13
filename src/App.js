@@ -1,5 +1,5 @@
 import React from "react";
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Home from './pages/Home/Home';
 import Location from './pages/Location/Location';
@@ -23,22 +23,15 @@ function App() {
                 <Route path="/sign-in" exact component={SignIn}/>
                 <Route path="/sign-up" exact component={SignUp}/>
                 <Route path="/links" exact component={Links}/>
-
-
-                <Route path="/deleted" exact component={Deleted}/>
-                <Route path="/new" exact component={New}/>
-                <Route path="/country" exact component={Country}/>
-
-
-                {/*<PrivateRoute path="/deleted">*/}
-                {/*    <Deleted/>*/}
-                {/*</PrivateRoute>*/}
-                {/*<PrivateRoute path="/new">*/}
-                {/*    <New/>*/}
-                {/*</PrivateRoute>*/}
-                {/*<PrivateRoute path="/country">*/}
-                {/*    <Country/>*/}
-                {/*</PrivateRoute>*/}
+                <PrivateRoute path="/deleted">
+                    <Deleted/>
+                </PrivateRoute>
+                <PrivateRoute path="/new">
+                    <New/>
+                </PrivateRoute>
+                <PrivateRoute path="/country">
+                    <Country/>
+                </PrivateRoute>
                 <PrivateRoute path="/profile">
                     <Profile/>
                 </PrivateRoute>

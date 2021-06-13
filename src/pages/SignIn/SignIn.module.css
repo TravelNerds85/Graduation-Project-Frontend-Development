@@ -1,16 +1,4 @@
-.background-signIn {
-    background-image: url("../../assets/Background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
 .container-sign-in {
-
     text-align: center;
     border-radius: 25px;
     background-color: #090808;
