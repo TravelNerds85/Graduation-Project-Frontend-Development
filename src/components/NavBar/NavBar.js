@@ -34,12 +34,11 @@ function NavBar() {
                     ) : (
                         <NavLink to="/sign-up" activeStyle>Register</NavLink>
                     )}
-
-                    {/*{user &&*/}
-                    {/*<NavLink to="/new" activeStyle>New</NavLink>*/}
+                    {/*<NavLink to="/country" activeStyle>Country Info</NavLink>*/}
                     {/*}*/}
                     {/*{user &&*/}
-                    {/*<NavLink to="/country" activeStyle>Country Info</NavLink>*/}
+                    {/*{user &&*/}
+                    {/*<NavLink to="/new" activeStyle>New</NavLink>*/}
                     {/*}*/}
                     {/*{user &&*/}
                     {/*<NavLink to="/deleted" activeStyle>Last chance</NavLink>*/}

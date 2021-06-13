@@ -3,9 +3,6 @@ import styles from './Deleted.module.css';
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
-// import DeletedItems from "../../components/DeletedItems";
-
-
 function Deleted() {
     const [deleted, setDeleted] = useState([]);
     const [error, setError] = useState('');
@@ -34,9 +31,8 @@ function Deleted() {
             console.error(e);
         }
         toggleLoading(false);
-        console.log(searchDeleted)
+        // console.log(searchDeleted)
     }
-
 
     return (
         <>
@@ -47,19 +43,18 @@ function Deleted() {
                 {error && <p className={styles.error}>{error}</p>}
                 {loading && <p>Data is being loaded...</p>}
             </div>
-            <ul className={styles['deleted-container']}>
+            <div className={styles['deleted-container']}>
                 {deleted &&
                 deleted.map((deleted) => {
-                    return <div className={styles['result-deleted']}>
-                        <li key={deleted.title} className={styles['title-deleted']}>{deleted.title}
-                            <img src={deleted.image} alt={deleted.title}/>
-                            <li className={styles['type-deleted']}>{deleted.type}</li>
-                            <li className={styles['date-deleted']}>Expires: {deleted.unogsdate}</li>
-                            <li className={styles['synopsis-deleted']} dangerouslySetInnerHTML={{__html: deleted.synopsis}}></li>
-                        </li>
-                    </div>
+                    return <ul className={styles['result-deleted']}>
+                            <li key={deleted.titledel} className={styles['title-deleted']} dangerouslySetInnerHTML={{__html: deleted.title}}></li>
+                            <li key={deleted.imagedel}><img src={deleted.image} alt={deleted.title}/></li>
+                            <li key={deleted.typedel} className={styles['type-deleted']}>{deleted.type}</li>
+                            <li key={deleted.datedel} className={styles['date-deleted']}>Expires: {deleted.unogsdate}</li>
+                            <li key={deleted.synopsisdel} className={styles['synopsis-deleted']} dangerouslySetInnerHTML={{__html: deleted.synopsis}}></li>
+                    </ul>
                 })}
-            </ul>
+            </div>
         </>
     );
 }

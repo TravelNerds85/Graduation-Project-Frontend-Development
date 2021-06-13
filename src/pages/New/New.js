@@ -3,14 +3,11 @@ import axios from 'axios';
 import styles from './New.module.css';
 import SearchBar from "../../components/SearchBar/SearchBar";
 
-// import NewItem from "../../components/NewItem";
-
 function New() {
     const [searchNew, setSearchNew] = useState([]);
     const [error, setError] = useState("");
     const [loading, toggleLoading] = useState(false);
     const [searchText, setSearchText] = useState('');
-
 
     async function fetchSearchData() {
         setError("");
@@ -36,6 +33,7 @@ function New() {
         toggleLoading(false);
         // console.log(searchText);
     }
+
     // console.log(countries)
 
     return (
@@ -44,25 +42,23 @@ function New() {
             <div className={styles['container-new']}>
                 <h1>New</h1>
                 <p>The following movies and series will be added to Netflix</p>
-                <SearchBar fetchSearchData={fetchSearchData} searchText={searchText} setSearchText={setSearchText} />
+                <SearchBar fetchSearchData={fetchSearchData} searchText={searchText} setSearchText={setSearchText}/>
                 {error && <p className={styles.error}>{error}</p>}
                 {loading && <p>Data is being loaded...</p>}
             </div>
-
-            <ul className={styles['result-container']}>
+            <div className={styles['result-container']}>
                 {searchNew &&
                 searchNew.map((searchNew) => {
-                    return <div className={styles['result-new']}>
-                        <li key={searchNew.title} className={styles.title}>{searchNew.title}
-                            <img src={searchNew.image} alt={searchNew.title}/>
-                            <li className={styles.type}>{searchNew.type}</li>
-                            <li className={styles.date}>New date: {searchNew.unogsdate}</li>
-                            <li className={styles.synopsis} dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
-                        </li>
-                    </div>
+                    return <ul className={styles['result-new']}>
+                            <li key={searchNew.titlenew} className={styles.title} dangerouslySetInnerHTML={{__html: searchNew.title}}></li>
+                            <li key={searchNew.imagenew}><img src={searchNew.image} alt={searchNew.title}/></li>
+                            <li key={searchNew.typenew} className={styles.type}>{searchNew.type}</li>
+                            <li key={searchNew.datenew} className={styles.date}>New date: {searchNew.unogsdate}</li>
+                            <li key={searchNew.synopsisnew} className={styles.synopsis} dangerouslySetInnerHTML={{__html: searchNew.synopsis}}></li>
+                    </ul>
                 })}
-            </ul>
-        {/*</div>*/}
+            </div>
+            {/*</div>*/}
         </>
     );
 }

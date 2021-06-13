@@ -46,7 +46,7 @@ function Location() {
                     countries.map((country) => {
                         console.log(country);
                         return <div className={styles.response}>
-                            <li key={country.name}>{country[2]}
+                            <li key={country.name}>{country[2]}{country[0]}
                             </li>
                         </div>
                     })}

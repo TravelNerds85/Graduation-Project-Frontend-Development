@@ -27,7 +27,6 @@ function SearchBar(props) {
                         },
                     }
                 );
-                // console.log('RESPONSE: ', response.data)
                 setCountries(response.data.ITEMS);
             } catch (e) {
                 setError("Something went wrong... 😢");
@@ -45,14 +44,13 @@ function SearchBar(props) {
                 type="text"
                 value={props.searchText}
                 onChange={(event) => props.setSearchText(event.target.value)}
-                placeholder="Please enter country code"
+                placeholder="Please enter country"
                 onKeyDown={keyPressCheck}
                 list='countries'
             />
             <datalist id="countries">
                 {countries &&
                 countries.map((country) => {
-                    console.log(country)
                     return <option value={country[1].toUpperCase()}>{country[2]}</option>
                 })}
             </datalist>
