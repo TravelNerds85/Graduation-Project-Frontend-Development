@@ -11,7 +11,7 @@ function Home() {
                     <p>How nice that you have decided to take a look at the </p>
                     <p className={styles['title-home']}>Unofficial Netflix Guide for Travellers.</p>
                     <p>Here you can check if your favourite movies and series are available at your destination.</p>
-                    <p>You can also check which movies will get added and series will get deleted.</p>
+                    <p>You can also check which movies  and series will get added and will get deleted.</p>
                 </div>
                 <div>
                     <BtnGetStarted/>
