@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Inleiding
+Deze opdracht beschrijft de website "Unofficial Netflix Guide for Travellers".
+Het probleem is dat als u op zakelijke reis of op vakantie gaat, u nooit weet of uw favoriete films en series beschikbaar 
+zijn op hun bestemming, omdat het content op Netflix per land verschilt. Zo kunt u bijvoorbeeld in Indonesië niet naar
+Lucifer kijken maar in nederland en Australië wel.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Het doel van de website is om reizigers die graag Netflix gebruiken tijdens hun reizen informatie te verschaffen over 
+welke films en series hun kunnen bekijken op hun bestemming.
+En ze kunnen ook zien welke films en series er zullen worden verwijderd en toegevoegd worden op hun bestemming.
 
-## Available Scripts
+![screenshot](./src/assets/screenshot.jpg)
 
-In the project directory, you can run:
+# Lijst met benodigdheden
+1. Git en Github
+2. Email account
+3. API key van https://english.api.rakuten.net/unogs/api/unogs
+
+# Installatie handleiding
+1. Clone de github repository.
+2. Installeer node_modules door `npm install` in de terminal in te voeren en druk op enter.
+3. De applicatie kan gestart worden door `npm start` in de terminal in te voeren en op enter te drukken. De applicatie opent een tab met http://localhost:3000 in uw browser.
+
+# Testen
+De testen zijn te vinden in de map Tests/Test.js
+
+Om de testen uit te voeren typ in de terminal: `npm run test`
+
+# Registreren en inloggen
+1. Voor deze applicatie wordt gebruikt gemaakt van de Novi database. Bij eerste keer registreren kan het zijn dat het 30 seconden duurt voordat de u wordt door geleid.
+2. Als u op de `Get Started` knop klikt wordt u doorverwezen naar de Register pagina.
+3. Op de Register pagina dienen alle velden te worden ingevuld, met uw eigen gegevens.
+4. Klik op de `Create account` knop of druk op enter.
+5. Als alle gegevens correct zijn ingevuld wordt u doorverwezen naar de Sign in pagina.
+6. Vul hier uw gebruikersnaam en wachtwoord in en klik op de `Sign in` knop of druk op enter.
+7. Nu u bent ingelogd wordt u doorverwezen naar de Profile pagina, vanuit hier kunt u verder navigeren naar de rest van de afgeschermde pagina's die nu ook in de navbar worden weergegeven.
+
+
+# Scripts NPM
+### `npm install`
+Installeert alle node_modules.
 
 ### `npm start`
+Hiermee start u het project in de development mode.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `npm build`
+Maakt een HTML, CSS en JavaScript bestand voor productie.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `npm run test`
+Voert de testen uit.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
