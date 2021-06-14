@@ -17,7 +17,7 @@ function Location() {
                     {
                         params: {t: 'lc', q: 'available'},
                         headers: {
-                            'x-rapidapi-key': '5f8cd96691msh979b7a58ac3d79bp1afb83jsndb0fb614cce9',
+                            'x-rapidapi-key': process.env.REACT_APP_API_KEY,
                             'x-rapidapi-host': 'unogs-unogs-v1.p.rapidapi.com',
                         },
                     }
