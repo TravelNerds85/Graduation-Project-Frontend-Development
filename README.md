@@ -1,4 +1,12 @@
-# Inleiding
+# Inhoudsopgave
+1. Inleiding
+2. Lijst met benodigdheden
+3. Installatiehandleiding
+4. Testen
+5. Registreren en inloggen
+6. Scripts NPM
+
+# 1. Inleiding
 Deze opdracht beschrijft de website "Unofficial Netflix Guide for Travellers".
 Het probleem is dat als u op zakelijke reis of op vakantie gaat, u nooit weet of uw favoriete films en series beschikbaar 
 zijn op hun bestemming, omdat het content op Netflix per land verschilt. Zo kunt u bijvoorbeeld in Indonesië niet naar
@@ -10,22 +18,22 @@ En ze kunnen ook zien welke films en series er zullen worden verwijderd en toege
 
 ![screenshot](./src/assets/screenshot.jpg)
 
-# Lijst met benodigdheden
+# 2. Lijst met benodigdheden
 1. Git en Github
 2. Email account
 3. API key van https://english.api.rakuten.net/unogs/api/unogs
 
-# Installatie handleiding
+# 3. Installatiehandleiding
 1. Clone de github repository.
 2. Installeer node_modules door `npm install` in de terminal in te voeren en druk op enter.
 3. De applicatie kan gestart worden door `npm start` in de terminal in te voeren en op enter te drukken. De applicatie opent een tab met http://localhost:3000 in uw browser.
 
-# Testen
+# 4. Testen
 De testen zijn te vinden in de map Tests/Test.js
 
 Om de testen uit te voeren typ in de terminal: `npm run test`
 
-# Registreren en inloggen
+# 5. Registreren en inloggen
 1. Voor deze applicatie wordt gebruikt gemaakt van de Novi database. Bij eerste keer registreren kan het zijn dat het 30 seconden duurt voordat de u wordt door geleid.
 2. Als u op de `Get Started` knop klikt wordt u doorverwezen naar de Register pagina.
 3. Op de Register pagina dienen alle velden te worden ingevuld, met uw eigen gegevens.
@@ -35,7 +43,7 @@ Om de testen uit te voeren typ in de terminal: `npm run test`
 7. Nu u bent ingelogd wordt u doorverwezen naar de Profile pagina, vanuit hier kunt u verder navigeren naar de rest van de afgeschermde pagina's die nu ook in de navbar worden weergegeven.
 
 
-# Scripts NPM
+# 6. Scripts NPM
 ### `npm install`
 Installeert alle node_modules.
 
