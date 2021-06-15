@@ -69,3 +69,12 @@
     color: white;
 }
 
+@media only screen and (max-width: 768px) {
+    .result-container {
+        grid-template-columns: 350px 350px;
+    }
+
+    .container-new {
+        max-width: 575px;
+    }
+}

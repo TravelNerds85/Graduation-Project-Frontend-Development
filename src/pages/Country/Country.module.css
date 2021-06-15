@@ -79,3 +79,17 @@
     font-size: 17px;
     color: white;
 }
+
+@media only screen and (max-width: 768px) {
+    .result-container {
+        grid-template-columns: 350px 350px;
+    }
+
+    .container-construction {
+        max-width: 600px;
+    }
+
+    .container-country {
+        max-width: 575px;
+    }
+}

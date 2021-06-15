@@ -72,3 +72,12 @@
 .synopsis-deleted b {
     display: none;
 }
+
+@media only screen and (max-width: 768px) {
+    .deleted-container {
+        grid-template-columns: 350px 350px;
+    }
+    .container-deleted {
+        max-width: 500px;
+    }
+}

@@ -22,9 +22,7 @@ function NavBar() {
                 <NavMenu>
                     <NavLink to="/location" activeStyle>Location</NavLink>
                     <NavLink to="/links" activeStyle>Links</NavLink>
-                    {user ? (
-                        <NavLink to="" activeStyle> </NavLink>
-                    ) : (
+                    {!user ?? (
                         <NavLink to="/sign-up" activeStyle>Register</NavLink>
                     )}
                     {user &&
